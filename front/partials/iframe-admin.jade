@@ -1,0 +1,50 @@
+|module.run(['$templateCache', ($templateCache) ->
+|  $templateCache.put('contrib/iframe', '''
+div(ng-controller="ContribIframeAdminController as ctrl")
+  header
+    h1
+      span.project-name
+        | {{::project.name}}
+      span.green
+        | {{::sectionName}} 
+  div.project-values-title
+    h2 Iframes
+    a.button.button-gray.show-add-new(href="", title="Add Iframe")
+      span Add Iframe
+  div.colors-table
+    div.table-header
+      div.row
+        div.color-column Icon
+        div.status-name Title
+        div.status-slug Slug
+        div.status-url  URL
+        div.options-column
+    div.table-main
+      div.sortable
+        div(ng-repeat="value in values", tg-bind-scope)
+          form(tg-bind-scope)
+            div.row.table-main.visualization
+              span.icon.icon-drag-v
+
+              div.color-column
+                span {{ value.icon }}
+
+              div.status-name
+                span {{ value.title }}
+
+              div.status-slug
+                span {{ value.slug }}
+
+              div.status-slug
+                span {{ value.url }}
+
+              div.options-column
+                a.edit-value.icon.icon-edit(href="", title="{{'ADMIN.COMMON.TITLE_ACTION_EDIT_VALUE' | translate}}")
+                a.delete-value.icon.icon-delete(href="", title="{{'ADMIN.COMMON.TITLE_ACTION_DELETE_VALUE' | translate}}")
+
+            div.row.table-main.edition.hidden
+              div.options-column
+                a.save.icon.icon-floppy(href="", title="{{'COMMON.SAVE' | translate}}")
+                a.cancel.icon.icon-delete(href="", title="{{'COMMON.CANCEL' | translate}}")
+
+|''')]);

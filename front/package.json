@@ -1,0 +1,31 @@
+{
+  "name": "taiga-plugin-iframe",
+  "version": "0.0.1",
+  "description": "Taiga plugin displays iframe",
+  "main": "index.js",
+  "scripts": {
+    "build-jade": "node_modules/jade/bin/jade.js partials/*.jade -o dist/",
+    "build-coffee": "cat coffee/iframe.coffee dist/iframe-admin.html dist/iframe-menu.html dist/iframe-show.html|node_modules/coffee-script/bin/coffee --compile --stdio > dist/iframe.js",
+    "build": "npm run build-jade; npm run build-coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msiniy/taiga-contrib-iframe"
+  },
+  "keywords": [
+    "iframe",
+    "taiga",
+    "plugin"
+  ],
+  "author": "Max Sinelnikov <msiniy@gmail.com>",
+  "license": "AGPL",
+  "bugs": {
+    "url": "https://github.com/msiniy/taiga-contrib-iframe/issues"
+  },
+  "homepage": "https://github.com/msiniy/taiga-contrib-iframe",
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "jade": "^1.9.1"
+  },
+  "private": true
+}
