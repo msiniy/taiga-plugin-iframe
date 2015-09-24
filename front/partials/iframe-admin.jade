@@ -17,26 +17,27 @@ div(ng-controller="ContribIframeAdminController as ctrl")
         div.color-column Icon
         div.status-name Title
         div.status-slug Slug
-        div.status-url  URL
+        div.status-slug  URL
         div.options-column
     div.table-main
       div.sortable
-        div(ng-repeat="value in values", tg-bind-scope)
+        div.tg-scope(ng-repeat="i in iframes", tg-bind-scope)
           form(tg-bind-scope)
             div.row.table-main.visualization
               span.icon.icon-drag-v
 
               div.color-column
-                span {{ value.icon }}
+                span.icon
+                  img(ng-src="data:image/png;base64, {{i.icon}}")
 
               div.status-name
-                span {{ value.title }}
+                span {{ i.title }}
 
               div.status-slug
-                span {{ value.slug }}
+                span {{ i.slug }}
 
               div.status-slug
-                span {{ value.url }}
+                span {{ i.url }}
 
               div.options-column
                 a.edit-value.icon.icon-edit(href="", title="{{'ADMIN.COMMON.TITLE_ACTION_EDIT_VALUE' | translate}}")

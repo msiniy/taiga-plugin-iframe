@@ -68,7 +68,7 @@ class IframeAdmin
 		@scope.$on "project:loaded", =>
 			promise = @repo.queryMany("iframe", {project: @scope.projectId})
 			promise.catch (e) ->
-				scope.values = IFRAMES_STUB
+				scope.iframes = IFRAMES_STUB
 
 class Iframe
 	@.$inject = [

@@ -5,7 +5,7 @@ nav.menu(ng-if="vm.project")
     ul.main-nav
       li(ng-repeat="i in iframes" id="{{i.slug}}")
         a(tg-nav="project-iframe:project=vm.project.get('slug'),iframe=i.slug", ng-class="{active: vm.active == 'iframe'}", title="{{i.title}}")
-          span(class="icon")
+          span.icon
             img(ng-src="data:image/png;base64, {{i.icon}}")
           span.helper {{i.title}}
 |''')]);
