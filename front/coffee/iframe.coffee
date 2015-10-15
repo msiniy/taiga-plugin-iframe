@@ -27,6 +27,9 @@ IFRAMES_STUB = [
 		title: "Google Drive",
 		slug: "google-drive",
 		url: "https://drive.google.com/embeddedfolderview?id=0B2RhVTpvm0MaaFNlN2xBTE1fV3M#grid",
+		html: "<div style='background: #f5f5f5; padding: .5rem; margin-bottom: 1rem'>" +
+			"<div class='button-green'><a target='_blank' href='https://drive.google.com/drive/u/0/folders/0B2RhVTpvm0MaaFNlN2xBTE1fV3M'><span class='text'>Открыть в Google Drive</span></a></div>" +
+			"</div>",
 		order: 3
 	},
 	{
@@ -34,6 +37,7 @@ IFRAMES_STUB = [
 		title: "Учёт финансов",
 		slug: "accounting",
 		url: "",
+		html: "<img src='http://cs424623.vk.me/v424623015/92a/k6j3kfoTPIU.jpg'>",
 		order: 4
 	}
 ]
@@ -104,6 +108,8 @@ class Iframe
 		#promise = @repo.queryOne("iframe", "by_slug", {project: @route.current.params.pslug, slug: @route.current.params.islug})
 		scope.trustSrc = (src) -> 
 			$sce.trustAsResourceUrl(src)
+		scope.trustHtml = (html) ->
+			$sce.trustAsHtml(html)
 		# find iframe
 		iframe = _.find(IFRAMES_STUB, (i) ->
 			i.slug == slug

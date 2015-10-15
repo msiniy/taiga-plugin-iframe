@@ -28,12 +28,14 @@
       title: "Google Drive",
       slug: "google-drive",
       url: "https://drive.google.com/embeddedfolderview?id=0B2RhVTpvm0MaaFNlN2xBTE1fV3M#grid",
+      html: "<div style='background: #f5f5f5; padding: .5rem; margin-bottom: 1rem'>" + "<div class='button-green'><a target='_blank' href='https://drive.google.com/drive/u/0/folders/0B2RhVTpvm0MaaFNlN2xBTE1fV3M'><span class='text'>Открыть в Google Drive</span></a></div>" + "</div>",
       order: 3
     }, {
       icon: "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",
       title: "Учёт финансов",
       slug: "accounting",
       url: "",
+      html: "<img src='http://cs424623.vk.me/v424623015/92a/k6j3kfoTPIU.jpg'>",
       order: 4
     }
   ];
@@ -115,6 +117,9 @@
       scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
       };
+      scope.trustHtml = function(html) {
+        return $sce.trustAsHtml(html);
+      };
       iframe = _.find(IFRAMES_STUB, function(i) {
         return i.slug === slug;
       });
@@ -165,7 +170,7 @@
 
   module.run([
     '$templateCache', function($templateCache) {
-      return $templateCache.put('contrib/iframe-show.html', '<div class="wrapper"><tg-project-menu></tg-project-menu><section class="main iframe"><h1> <a href="{{iframe.url}}">{{iframe.title}}</a></h1><iframe src="{{trustSrc(iframe.url)}}" name="{{iframe.slug}}" style="width:100%; height: 90%"></iframe></section></div>');
+      return $templateCache.put('contrib/iframe-show.html', '<div class="wrapper"><tg-project-menu></tg-project-menu><section class="main iframe"><h1> <a href="{{iframe.url}}">{{iframe.title}}</a></h1><div ng-show="iframe.html" ng-bind-html="trustHtml(iframe.html)" class="extra_html"></div><iframe src="{{trustSrc(iframe.url)}}" name="{{iframe.slug}}" style="width:100%; min-height:calc(100vh - 40px);"></iframe></section></div>');
     }
   ]);
 
