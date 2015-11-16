@@ -13,11 +13,13 @@
       link = compile.apply(this, arguments);
       tElement.append($templateCache.get('contrib/iframe-menu.html'));
       return function(scope, elem, attrs) {
-        var projectId, promise;
+        var promise;
         link.apply(this, arguments);
-        projectId = 1;
-        promise = $tgRepo.queryMany("iframe", {
-          project: projectId
+        promise = $tgRepo.queryMany("iframe_by_slug", {
+          "pslug": $route.current.params.pslug
+        });
+        console.log({
+          pslug: $route.current.params.pslug
         });
         promise.then((function(_this) {
           return function(iframes) {
@@ -95,7 +97,7 @@
         return $sce.trustAsHtml(html);
       };
       promise = this.repo.queryOne("iframe", "by_slug", {
-        project: 1,
+        pslug: this.route.current.params.pslug,
         slug: this.route.current.params.islug
       });
       promise.then((function(_this) {
@@ -121,7 +123,8 @@
       "project-iframe": "/project/:project/iframe/:iframe"
     });
     $tgUrls.update({
-      "iframe": "/iframe"
+      "iframe": "/iframe",
+      "iframe_by_slug": "/iframe/by_slug"
     });
   };
 

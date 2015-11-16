@@ -13,9 +13,8 @@ decorator = ($delegate, $templateCache, $route, $tgRepo) ->
 		return (scope, elem, attrs) ->
 			link.apply(this, arguments)
 			# extend link function here
-			projectId = 1  # FIXME
-			# console.log $route.current.params.pslug <-- use project slug? No backend support
-			promise = $tgRepo.queryMany("iframe", {project: projectId})
+			promise = $tgRepo.queryMany("iframe_by_slug",  {"pslug": $route.current.params.pslug})
+			console.log {pslug: $route.current.params.pslug}
 			promise.then (iframes) =>
 				scope.iframes = iframes
 				return
@@ -76,9 +75,7 @@ class Iframe
 		@scope.trustHtml = (html) ->
 			$sce.trustAsHtml(html)
 		# find iframe
-		# FIXME!
-		#promise = @repo.queryOne("iframe", "by_slug", {project: @route.current.params.pslug, slug: @route.current.params.islug})
-		promise = @repo.queryOne("iframe", "by_slug", {project: 1, slug: @route.current.params.islug})
+		promise = @repo.queryOne("iframe", "by_slug", {pslug: @route.current.params.pslug, slug: @route.current.params.islug})
 		promise.then (iframe) =>
 			console.log iframe
 			@scope.iframe = iframe
@@ -92,7 +89,8 @@ initIframePlugin = ($tgNavUrls, $tgUrls) ->
 		"project-iframe": "/project/:project/iframe/:iframe"
 	})
 	$tgUrls.update({
-		"iframe": "/iframe"
+		"iframe": "/iframe",
+		"iframe_by_slug": "/iframe/by_slug"
 	})
 	return
 
