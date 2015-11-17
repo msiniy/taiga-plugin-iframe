@@ -30,49 +30,51 @@ div(ng-controller="ContribIframeAdminController as ctrl")
             div.options-column
         div.table-main
           div.sortable.ui-sortable
-            div.tg-scope(ng-repeat="i in values", tg-bind-scope)
+            div.tg-scope(ng-repeat="value in values", tg-bind-scope)
               form(tg-bind-scope, style="max-width:100%")
                 div.row.table-main.visualization
                   span.icon.icon-drag-v
 
                   div.iframe-icon(style="flex-basis: 60px; flex-grow: 0; max-width:100px; position: relative")
                     span.icon
-                      img(ng-src="{{i.icon}}")
+                      img(ng-src="{{value.icon}}")
 
                   div.iframe-title(style="flex-basis: 60px; flex-grow: 1; position: relative")
-                    span {{ i.title }}
+                    span {{ value.title }}
 
                   div.iframe-slug(style="flex-basis: 60px; flex-grow: 1; position: relative")
-                    span {{ i.slug }}
+                    span {{ value.slug }}
 
                   div.iframe-url(style="flex-basis: 120px; flex-grow: 3; position: relative")
-                    span {{ i.url }}
+                    span {{ value.url }}
 
                   div.iframe-html(style="flex-basis: 250px; flex-grow: 6; position: relative")
-                    span {{ i.html }}
+                    span {{ value.html }}
 
                   div.options-column
                     a.a.edit-value.icon.icon-edit(href="", title="{{'ADMIN.COMMON.TITLE_ACTION_EDIT_VALUE' | translate}}")
                     a.delete-value.icon.icon-delete(href="", title="{{'ADMIN.COMMON.TITLE_ACTION_DELETE_VALUE' | translate}}")
 
                 div.row.table-main.edition.hidden
-                  div.iframe-icon
+                  div.iframe-icon(style="flex-basis: 60px; flex-grow: 0; max-width:100px; position: relative")
                     span FIXME
 
-                  div.iframe-title
+                  div.iframe-title(style="flex-basis: 60px; flex-grow: 1; position: relative")
                     input(name="title", type="text", placeholder="Title",
-                        ng-model="iframe.title", data-required="true", data-maxlength="255")
+                        ng-model="value.title", data-required="true", data-maxlength="255")
 
-                  div.iframe-slug
+                  div.iframe-slug(style="flex-basis: 60px; flex-grow: 1; position: relative")
                     input(name="slug", type="text", placeholder="Slug",
-                        ng-model="iframe.slug", data-required="true", data-maxlength="255")
+                        ng-model="value.slug", data-required="true", data-maxlength="255")
 
-                  div.iframe-url
+                  div.iframe-url(style="flex-basis: 120px; flex-grow: 3; position: relative")
                     input(name="url", type="text", placeholder="http://URL",
-                        ng-model="iframe.url", data-required="true", data-maxlength="255")
+                        ng-model="value.url", data-required="true", data-maxlength="255")
 
-                  div.iframe-html
-                    span FIXME
+                  div.iframe-html(style="flex-basis: 250px; flex-grow: 6; position: relative")
+                    input(name="html", type="text", placeholder="HTML",
+                        ng-model="value.html", data-required="false", data-maxlength="8092")
+
 
                   div.options-column
                     a.save.icon.icon-floppy(href="", title="{{'COMMON.SAVE' | translate}}")

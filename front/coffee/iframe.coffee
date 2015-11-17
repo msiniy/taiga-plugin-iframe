@@ -14,7 +14,6 @@ decorator = ($delegate, $templateCache, $route, $tgRepo) ->
 			link.apply(this, arguments)
 			# extend link function here
 			promise = $tgRepo.queryMany("iframe_by_slug",  {"pslug": $route.current.params.pslug})
-			console.log {pslug: $route.current.params.pslug}
 			promise.then (iframes) =>
 				scope.iframes = iframes
 				return
@@ -56,7 +55,6 @@ class IframeAdmin
 		@scope.$on "project:loaded", =>
 			promise = @repo.queryMany("iframe", {project: @scope.projectId})
 			promise.then (iframes) =>
-				console.log iframes
 				scope.values = iframes
 				return
 
@@ -77,7 +75,6 @@ class Iframe
 		# find iframe
 		promise = @repo.queryOne("iframe", "by_slug", {pslug: @route.current.params.pslug, slug: @route.current.params.islug})
 		promise.then (iframe) =>
-			console.log iframe
 			@scope.iframe = iframe
 
 module = angular.module('taigaContrib.iframe', [])
