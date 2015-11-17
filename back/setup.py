@@ -13,7 +13,7 @@ setup(
     author_email="msiniy@gmail.com",
     url="https://github.com/msiniy/taiga-plugin-iframe",
     license="AGPL",
-    include_package_data=True,
+    include_package_data=False,
     packages=find_packages(),
     install_requires=[
         "django >= 1.8.5",
